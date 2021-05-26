@@ -56,6 +56,7 @@ class _NumericKeyboardState extends State<NumericKeyboard> {
       padding: const EdgeInsets.only(left: 32, right: 32, top: 20),
       alignment: Alignment.center,
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           Flexible(
             flex: 1,
