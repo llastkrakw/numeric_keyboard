@@ -35,28 +35,36 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
+        mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Text(text),
-          NumericKeyboard(
-            onKeyboardTap: _onKeyboardTap,
-            textColor: Colors.red,
-            rightButtonFn: () {
-              setState(() {
-                text = text.substring(0, text.length - 1);
-              });
-            },
-            rightIcon: Icon(
-              Icons.backspace,
-              color: Colors.red,
-            ),
-            leftButtonFn: () {
-              print('left button clicked');
-            },
-            leftIcon: Icon(
-              Icons.check,
-              color: Colors.red,
+          Container(
+            color: Colors.yellow,
+            margin: EdgeInsets.all(30),
+            width: 300,
+            height: 200,
+            child: NumericKeyboard(
+              onKeyboardTap: _onKeyboardTap,
+              textColor: Colors.red,
+              fontSize: 22,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              rightButtonFn: () {
+                setState(() {
+                  text = text.substring(0, text.length - 1);
+                });
+              },
+              rightIcon: Icon(
+                Icons.backspace,
+                color: Colors.red,
+              ),
+              leftButtonFn: () {
+                print('left button clicked');
+              },
+              leftIcon: Icon(
+                Icons.check,
+                color: Colors.red,
+              ),
             ),
           ),
         ],

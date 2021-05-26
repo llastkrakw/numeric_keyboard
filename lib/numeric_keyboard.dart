@@ -26,6 +26,12 @@ class NumericKeyboard extends StatefulWidget {
   /// Main axis alignment [default = MainAxisAlignment.spaceEvenly]
   final MainAxisAlignment mainAxisAlignment;
 
+  /// Font size off buttons [default = 26]
+  final double fontSize;
+
+  /// Main axis size [default = MainAxisAlignment.max]
+  final MainAxisSize mainAxisSize;
+
   NumericKeyboard(
       {Key? key,
       required this.onKeyboardTap,
@@ -34,7 +40,7 @@ class NumericKeyboard extends StatefulWidget {
       this.rightIcon,
       this.leftButtonFn,
       this.leftIcon,
-      this.mainAxisAlignment = MainAxisAlignment.spaceEvenly})
+      this.mainAxisAlignment = MainAxisAlignment.spaceEvenly, this.fontSize = 26, this.mainAxisSize = MainAxisSize.max})
       : super(key: key);
 
   @override
@@ -51,58 +57,74 @@ class _NumericKeyboardState extends State<NumericKeyboard> {
       alignment: Alignment.center,
       child: Column(
         children: <Widget>[
-          ButtonBar(
-            alignment: widget.mainAxisAlignment,
-            children: <Widget>[
-              _calcButton('1'),
-              _calcButton('2'),
-              _calcButton('3'),
-            ],
+          Flexible(
+            flex: 1,
+            child: ButtonBar(
+              alignment: widget.mainAxisAlignment,
+              mainAxisSize: widget.mainAxisSize,
+              children: <Widget>[
+                _calcButton('1', widget.fontSize),
+                _calcButton('2', widget.fontSize),
+                _calcButton('3', widget.fontSize),
+              ],
+            ),
           ),
-          ButtonBar(
-            alignment: widget.mainAxisAlignment,
-            children: <Widget>[
-              _calcButton('4'),
-              _calcButton('5'),
-              _calcButton('6'),
-            ],
+          Flexible(
+            flex: 1,
+            child: ButtonBar(
+              alignment: widget.mainAxisAlignment,
+              mainAxisSize: widget.mainAxisSize,
+              children: <Widget>[
+                _calcButton('4', widget.fontSize),
+                _calcButton('5', widget.fontSize),
+                _calcButton('6', widget.fontSize),
+              ],
+            ),
           ),
-          ButtonBar(
-            alignment: widget.mainAxisAlignment,
-            children: <Widget>[
-              _calcButton('7'),
-              _calcButton('8'),
-              _calcButton('9'),
-            ],
+          Flexible(
+            flex: 1,
+            child: ButtonBar(
+              alignment: widget.mainAxisAlignment,
+              mainAxisSize:widget.mainAxisSize,
+              children: <Widget>[
+                _calcButton('7', widget.fontSize),
+                _calcButton('8', widget.fontSize),
+                _calcButton('9', widget.fontSize),
+              ],
+            ),
           ),
-          ButtonBar(
-            alignment: widget.mainAxisAlignment,
-            children: <Widget>[
-              InkWell(
-                  borderRadius: BorderRadius.circular(45),
-                  onTap: widget.leftButtonFn,
-                  child: Container(
-                      alignment: Alignment.center,
-                      width: 50,
-                      height: 50,
-                      child: widget.leftIcon)),
-              _calcButton('0'),
-              InkWell(
-                  borderRadius: BorderRadius.circular(45),
-                  onTap: widget.rightButtonFn,
-                  child: Container(
-                      alignment: Alignment.center,
-                      width: 50,
-                      height: 50,
-                      child: widget.rightIcon))
-            ],
+          Flexible(
+            flex: 1,
+            child: ButtonBar(
+              alignment: widget.mainAxisAlignment,
+              mainAxisSize: widget.mainAxisSize,
+              children: <Widget>[
+                InkWell(
+                    borderRadius: BorderRadius.circular(45),
+                    onTap: widget.leftButtonFn,
+                    child: Container(
+                        alignment: Alignment.center,
+                        width: 50,
+                        height: 50,
+                        child: widget.leftIcon)),
+                _calcButton('0', widget.fontSize),
+                InkWell(
+                    borderRadius: BorderRadius.circular(45),
+                    onTap: widget.rightButtonFn,
+                    child: Container(
+                        alignment: Alignment.center,
+                        width: 50,
+                        height: 50,
+                        child: widget.rightIcon))
+              ],
+            ),
           ),
         ],
       ),
     );
   }
 
-  Widget _calcButton(String value) {
+  Widget _calcButton(String value, double fontSize) {
     return InkWell(
         borderRadius: BorderRadius.circular(45),
         onTap: () {
@@ -115,7 +137,7 @@ class _NumericKeyboardState extends State<NumericKeyboard> {
           child: Text(
             value,
             style: TextStyle(
-                fontSize: 26,
+                fontSize: fontSize,
                 fontWeight: FontWeight.bold,
                 color: widget.textColor),
           ),
