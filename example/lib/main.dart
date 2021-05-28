@@ -43,7 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
             color: Colors.yellow,
             margin: EdgeInsets.all(30),
             width: 300,
-            height: 200,
+            height: 150,
             child: NumericKeyboard(
               onKeyboardTap: _onKeyboardTap,
               textColor: Colors.red,

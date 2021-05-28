@@ -105,8 +105,8 @@ class _NumericKeyboardState extends State<NumericKeyboard> {
                     onTap: widget.leftButtonFn,
                     child: Container(
                         alignment: Alignment.center,
-                        width: 50,
-                        height: 50,
+                        width: 30,
+                        height: 30,
                         child: widget.leftIcon)),
                 _calcButton('0', widget.fontSize),
                 InkWell(
@@ -114,8 +114,8 @@ class _NumericKeyboardState extends State<NumericKeyboard> {
                     onTap: widget.rightButtonFn,
                     child: Container(
                         alignment: Alignment.center,
-                        width: 50,
-                        height: 50,
+                        width: 30,
+                        height: 30,
                         child: widget.rightIcon))
               ],
             ),
@@ -133,8 +133,8 @@ class _NumericKeyboardState extends State<NumericKeyboard> {
         },
         child: Container(
           alignment: Alignment.center,
-          width: 50,
-          height: 50,
+          width: 30,
+          height: 30,
           child: Text(
             value,
             style: TextStyle(
